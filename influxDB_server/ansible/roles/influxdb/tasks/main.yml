@@ -1,0 +1,27 @@
+---
+
+- name: Create a directory for InfluxDB data
+  ansible.builtin.file:
+    path: /opt/influxdb/influxdb-docker-data-volume
+    state: directory
+
+# - name: Generate InfluxDB configuration
+#   community.docker.docker_container:
+#     name: influxdb-config
+#     image: influxdb:2.7.4
+#     command: influx server-config
+#     volumes:
+#       - /opt/influxdb/influxdb-docker-data-volume:/etc/influxdb2
+#     detach: false
+
+- name: Run InfluxDB container
+  community.docker.docker_container:
+    name: influxdb
+    image: influxdb:2.7.4
+    state: started
+    restart_policy: always
+    ports:
+      - "8086:8086"
+    volumes:
+      - /opt/influxdb/influxdb-docker-data-volume:/var/lib/influxdb2
+    command: --reporting-disabled

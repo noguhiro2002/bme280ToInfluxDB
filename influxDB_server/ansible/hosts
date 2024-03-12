@@ -1,0 +1,4 @@
+[servers]
+# your_server_ip ansible_user=your_username ansible_ssh_private_key_file=/path/to/your/private/key
+
+<IP_ADDRESS> ansible_user=<USER_NAME> ansible_ssh_private_key_file=<YOUR_SSH_PRIVATE_KEY_PATH>

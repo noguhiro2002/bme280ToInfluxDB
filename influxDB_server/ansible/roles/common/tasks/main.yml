@@ -1,0 +1,14 @@
+---
+
+# - name: Set Japanese keyboard layout
+#   community.general.locales:
+#     name: jp
+
+- name: Set timezone to Tokyo
+  ansible.builtin.timezone:
+    name: Asia/Tokyo
+
+- name: Update and upgrade apt packages
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: dist

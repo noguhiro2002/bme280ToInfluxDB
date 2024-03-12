@@ -1,0 +1,11 @@
+{
+    "INFLUXDB_URL": "<input your value string>",
+    "INFLUXDB_TOKEN": "<input your value string>",
+    "INFLUXDB_ORG": "<input your value string>",
+    "INFLUXDB_BUCKET": "<input your value string>",
+    "INFLUXDB_MEASUREMENT":"<input your value string>",
+    "INFLUXDB_tag_roomName":"<input your value string>",
+    "INFLUXDB_tag_deviceName":"<input your value string>",
+    "data_interval_sec": <input your value int>
+}
+

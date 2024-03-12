@@ -1,0 +1,12 @@
+[Unit]
+Description=BME280 Environmental Data Collector for InfluxDB
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/bme280ToInfluxdb
+ExecStart=/usr/bin/python3 /opt/bme280ToInfluxdb/bme280ToInfluxdb.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

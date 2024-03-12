@@ -1,0 +1,17 @@
+---
+
+- name: Pull Grafana OSS Docker image
+  community.docker.docker_image:
+    name: grafana/grafana-oss
+    source: pull
+
+- name: Run Grafana OSS container
+  community.docker.docker_container:
+    name: grafana
+    image: grafana/grafana-oss
+    state: started
+    restart_policy: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
