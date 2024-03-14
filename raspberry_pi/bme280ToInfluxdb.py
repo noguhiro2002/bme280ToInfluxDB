@@ -3,6 +3,7 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 from bme280_get_params import bme280Reader 
 import json
+import requests
 
 
 config_path = './bme280ToInfluxdb_config.json'
@@ -27,7 +28,8 @@ sensor = bme280Reader()  # with default pass number and I2C address
 
 ## Start Process ##
 # Init influxdb client
-write_client = InfluxDBClient(url=url, token=token, org=org)
+requests.packages.urllib3.disable_warnings() 
+write_client = InfluxDBClient(url=url, token=token, org=org, verify_ssl=False)
 write_api = write_client.write_api(write_options=SYNCHRONOUS)
 
 while True:
